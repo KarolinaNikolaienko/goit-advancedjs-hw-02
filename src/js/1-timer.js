@@ -15,11 +15,10 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-        console.log();
-        if (selectedDates[0] > this.defaultDate) {
+        if (selectedDates[0] > this.config.defaultDate) {
             btnStart.disabled = false;
             userSelectedDate = selectedDates[0];
-            console.log(selectedDates[0]);
+            // console.log(selectedDates[0]);
         }
         else {
             btnStart.disabled = true;
@@ -36,10 +35,6 @@ const options = {
         }
     },
 };
-
-const fp = flatpickr(inputDate, options);
-
-
 
 function convertMs(ms) {
     // Number of milliseconds per unit of time
@@ -60,12 +55,31 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds };
 }
 
+function updateTime(t) {
+    const days = document.querySelector("span.value[data-days]");
+    const hours = document.querySelector("span.value[data-hours]");
+    const minutes = document.querySelector("span.value[data-minutes]");
+    const seconds = document.querySelector("span.value[data-seconds]");
+
+    days.textContent = t.days;
+    hours.textContent = t.hours;
+    minutes.textContent = t.minutes;
+    seconds.textContent = t.seconds;
+}
+
+const fp = flatpickr(inputDate, options);
+
 btnStart.addEventListener("click", (event) => {
     event.target.disabled = true;
     inputDate.disabled = true;
+    fp.config.defaultDate = new Date();
+    let remainTime = new Date(userSelectedDate - fp.config.defaultDate);
+    console.log(remainTime);
     const intervalId = setInterval(() => {
-        const remainTime = convertMs(userSelectedDate - options.defaultDate);
-        console.log(remainTime);
+        remainTime.setSeconds(remainTime.getSeconds() - 1);
+        updateTime(convertMs(remainTime.getTime()));
+        if (remainTime.getTime() < 1000)
+            clearInterval(intervalId);
     }, 1000);
 });
 
