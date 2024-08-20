@@ -61,10 +61,10 @@ function updateTime(t) {
     const minutes = document.querySelector("span.value[data-minutes]");
     const seconds = document.querySelector("span.value[data-seconds]");
 
-    days.textContent = t.days;
-    hours.textContent = t.hours;
-    minutes.textContent = t.minutes;
-    seconds.textContent = t.seconds;
+    days.textContent = t.days < 10 ? "0" + t.days : t.days;
+    hours.textContent = t.hours < 10 ? "0" + t.hours : t.hours;
+    minutes.textContent = t.minutes < 10 ? "0" + t.minutes : t.minutes;
+    seconds.textContent = t.seconds < 10 ? "0" + t.seconds : t.seconds;
 }
 
 const fp = flatpickr(inputDate, options);
