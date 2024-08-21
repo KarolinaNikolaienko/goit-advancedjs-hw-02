@@ -1,3 +1,7 @@
+input {
+    width: 272px;
+}
+
 .timer {
     display: flex;
     gap: 24px;
