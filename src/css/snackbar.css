@@ -67,16 +67,20 @@ fieldset:hover {
 
 
 fieldset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
     border: 1px solid var(--dark-grey);
     border-radius: 4px;
     width: 100%;
     margin: 0;
     margin-bottom: 24px;
-    /* padding: 24px 48px 8px 48px; */
+    padding: 0 24px 8px 24px;
 }
 
 legend {
-
+    margin-bottom: 14px;
 }
 
 button {
