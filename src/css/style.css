@@ -92,7 +92,11 @@ button:disabled {
 }
 
 .success-alert {
-  background-color: #59a10d!important;
+  background-color: #59a10d !important;
+}
+
+.warning-alert {
+  background-color: #ffa000 !important; 
 }
 
 strong {

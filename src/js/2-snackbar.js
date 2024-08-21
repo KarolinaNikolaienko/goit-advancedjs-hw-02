@@ -2,6 +2,20 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const formElem = document.querySelector("form");
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", (event) => {
+    if (!formElem.elements.delay.value || !formElem.elements.state.value)
+        iziToast.warning({
+            class: "warning-alert",
+            title: "Caution",
+            titleColor: "white",
+            iconUrl: "../img/warning-icon.svg",
+            message: "You forgot important data",
+            messageColor: "white",
+            position: "topRight"
+        });
+});
 
 const showPromise = (state, delay) => {
     if (state === "fulfilled") 
