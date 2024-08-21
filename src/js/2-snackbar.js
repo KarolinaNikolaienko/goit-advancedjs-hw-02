@@ -16,6 +16,26 @@ formElem.addEventListener("submit", (event) => {
     const delay = form.elements.delay.value;
     const state = form.elements.state.value;
     showPromise(state, delay)
-        .then(delay => setTimeout(() => { iziToast.success({ message: `✅ Fulfilled promise in ${delay}ms` }) }, delay))
-        .catch(delay => setTimeout(() => { iziToast.error({ message: `❌ Rejected promise in ${delay}ms` }) }, delay));
+        .then(delay => setTimeout(() => {
+            iziToast.success({
+                class: "success-alert",
+                title: "OK",
+                titleColor: "white",
+                iconUrl: "../img/success-icon.svg",
+                message: `Fulfilled promise in ${delay}ms`,
+                messageColor: "white",
+                position: "topRight"
+            })
+        }, delay))
+        .catch(delay => setTimeout(() => {
+            iziToast.error({
+                class: "error-alert",
+                title: "Error",
+                titleColor: "white",
+                iconUrl: "../img/error-icon.svg",
+                message: `Rejected promise in ${delay}ms`,
+                messageColor: "white",
+                position: "topRight"
+            })
+        }, delay));
 });

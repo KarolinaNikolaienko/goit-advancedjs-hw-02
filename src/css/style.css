@@ -86,3 +86,19 @@ button:disabled {
 .timer {
   margin-top: 32px;
 }
+
+.error-alert {
+  background-color: #EF4040 !important;
+}
+
+.success-alert {
+  background-color: #59a10d!important;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.iziToast>.iziToast-close {
+  background: url(../img/close.svg) no-repeat 50% 50% !important;
+}
