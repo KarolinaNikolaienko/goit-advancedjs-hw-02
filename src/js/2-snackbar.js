@@ -10,7 +10,7 @@ btn.addEventListener("click", (event) => {
             class: "warning-alert",
             title: "Caution",
             titleColor: "white",
-            iconUrl: "../img/warning-icon.svg",
+            // iconUrl: "../img/warning-icon.svg",
             message: "You forgot important data",
             messageColor: "white",
             position: "topRight"
@@ -35,7 +35,7 @@ formElem.addEventListener("submit", (event) => {
                 class: "success-alert",
                 title: "OK",
                 titleColor: "white",
-                iconUrl: "../img/success-icon.svg",
+                // iconUrl: "../img/success-icon.svg",
                 message: `Fulfilled promise in ${delay}ms`,
                 messageColor: "white",
                 position: "topRight"
@@ -46,7 +46,7 @@ formElem.addEventListener("submit", (event) => {
                 class: "error-alert",
                 title: "Error",
                 titleColor: "white",
-                iconUrl: "../img/error-icon.svg",
+                // iconUrl: "../img/error-icon.svg",
                 message: `Rejected promise in ${delay}ms`,
                 messageColor: "white",
                 position: "topRight"

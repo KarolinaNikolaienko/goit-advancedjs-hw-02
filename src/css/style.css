@@ -106,3 +106,15 @@ strong {
 .iziToast>.iziToast-close {
   background: url(../img/close.svg) no-repeat 50% 50% !important;
 }
+
+.iziToast>.iziToast-body .iziToast-icon.ico-error {
+  background: url(../img/error-icon.svg) no-repeat 50% 50% !important;
+}
+
+.iziToast>.iziToast-body .iziToast-icon.ico-success {
+  background: url(../img/success-icon.svg) no-repeat 50% 50% !important;
+}
+
+.iziToast>.iziToast-body .iziToast-icon.ico-warning {
+  background: url(../img/warning-icon.svg) no-repeat 50% 50% !important;
+}
