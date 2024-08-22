@@ -18,10 +18,14 @@ btn.addEventListener("click", (event) => {
 });
 
 const showPromise = (state, delay) => {
-    if (state === "fulfilled") 
-        return Promise.resolve(delay);
-    else 
-        return Promise.reject(delay);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (state === "fulfilled")
+                resolve(delay);
+            else
+                reject(delay);
+        }, delay);
+    });
 };
 
 formElem.addEventListener("submit", (event) => {
@@ -30,7 +34,7 @@ formElem.addEventListener("submit", (event) => {
     const delay = form.elements.delay.value;
     const state = form.elements.state.value;
     showPromise(state, delay)
-        .then(delay => setTimeout(() => {
+        .then(delay => {
             iziToast.success({
                 class: "success-alert",
                 title: "OK",
@@ -40,8 +44,8 @@ formElem.addEventListener("submit", (event) => {
                 messageColor: "white",
                 position: "topRight"
             })
-        }, delay))
-        .catch(delay => setTimeout(() => {
+        })
+        .catch(delay => {
             iziToast.error({
                 class: "error-alert",
                 title: "Error",
@@ -51,5 +55,5 @@ formElem.addEventListener("submit", (event) => {
                 messageColor: "white",
                 position: "topRight"
             })
-        }, delay));
+        });
 });
